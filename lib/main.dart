@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -11,23 +12,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Latihan Row and Coloumn")
+          title: Text("Latihan Container"),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Text 1"),
-            Text("Text 2"),
-            Text("Text 3"),
-            Row(
-              children: <Widget>[
-                Text("Text 5"),
-                Text("Text 6"),
-              ],
-            )
-          ]
-          ,
+        body: Container(
+          color: Colors.red,
+          margin: EdgeInsets.fromLTRB(10, 15, 20, 25),
+          padding: EdgeInsets.only(bottom: 20, top: 20),
+          child: Container(
+            margin: EdgeInsets.all(20),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: <Color>[Colors.amber, Colors.blue])),
+            ),
+          ),
         ),
       ),
     );
