@@ -12,30 +12,54 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String message = "Default Text";
+  List<Widget> widgets = [];
+  int counter = 1;
+
+  // Constuctor
+  // _MyAppState() {
+  //   for (int i = 0; i < 15; i++) {
+  //     widgets
+  //         .add(Text("Data ke-" + i.toString(), style: TextStyle(fontSize: 50)));
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Statefull Widget Demo"),
-          ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(message),
-                RaisedButton(
-                    child: Text("Tekan saya"),
-                    onPressed: () {
-                      setState(() {
-                        message = "Tombol sudah ditekan";
-                      });
-                    })
-              ],
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text("Latihan List View"),
+      ),
+      body: ListView(children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Tambah Data"),
+              onPressed: () {
+                setState(() {
+                  widgets.add(Text("Data ke" + counter.toString(),
+                      style: TextStyle(fontSize: 50)));
+                  counter++;
+                });
+              },
             ),
-          )),
-    );
+            RaisedButton(
+              child: Text("Hapus Data"),
+              onPressed: () {
+                setState(() {
+                  widgets.removeLast();
+                  counter--;
+                });
+              },
+            )
+          ],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: widgets,
+        )
+      ]),
+    ));
   }
 }
