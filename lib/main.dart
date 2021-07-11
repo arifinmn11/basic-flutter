@@ -14,8 +14,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Color color1 = Colors.red;
-  Color color3 = Colors.orange;
-  Color color2 = Colors.grey;
+  Color color2 = Colors.orange;
+  Color colorDisable = Colors.grey;
   bool isAccepted = false;
 
   Color targetColor = Colors.transparent;
@@ -54,24 +54,24 @@ class _MyAppState extends State<MyApp> {
                     width: 50,
                     height: 50,
                     child: Material(
-                      color: color2.withOpacity(0.2),
+                      color: colorDisable.withOpacity(0.2),
                       shape: StadiumBorder(),
                     ),
                   ),
                 ),
                 Draggable<Color>(
-                  data: color3,
+                  data: color2,
                   feedback: SizedBox(
                     width: 50,
                     height: 50,
                     child: Material(
-                        color: color3.withOpacity(0.7), shape: StadiumBorder()),
+                        color: color2.withOpacity(0.7), shape: StadiumBorder()),
                   ),
                   child: SizedBox(
                     width: 50,
                     height: 50,
                     child: Material(
-                      color: color3,
+                      color: color2,
                       shape: StadiumBorder(),
                       elevation: 2,
                     ),
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                     width: 50,
                     height: 50,
                     child: Material(
-                      color: color2.withOpacity(0.2),
+                      color: colorDisable.withOpacity(0.2),
                       shape: StadiumBorder(),
                     ),
                   ),
@@ -107,7 +107,7 @@ class _MyAppState extends State<MyApp> {
                         width: 100,
                         height: 100,
                         child: Material(
-                          color: color2.withOpacity(0.5),
+                          color: colorDisable.withOpacity(0.5),
                           shape: StadiumBorder(),
                           elevation: 2,
                         ),
