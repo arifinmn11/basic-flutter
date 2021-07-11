@@ -16,14 +16,17 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Aplikasi Hello WOrld"),
+            title: Text("Aplikasi Text Style"),
           ),
           body: Center(
-            child: Container(
-              color: Colors.lightBlue,
-              width: 150,
-              height: 50,
-              child: Text("Hello world!"),
+            child: Text(
+              "Ini adalah sebuah text",
+              style: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.none,
+                  decorationStyle: TextDecorationStyle.double),
             ),
           ),
         ));
