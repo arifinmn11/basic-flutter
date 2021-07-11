@@ -11,31 +11,35 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(
-            Icons.adb,
-            color: Colors.white,
-          ),
-          title: Text(
-            'AppBar Example',
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app))
-          ],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    end: FractionalOffset.topLeft,
-                    begin: FractionalOffset.bottomRight,
-                    colors: <Color>[Colors.indigo, Colors.indigoAccent]),
-                image: DecorationImage(
-                    image: AssetImage('assets/1.png'),
-                    fit: BoxFit.none,
-                    repeat: ImageRepeat.repeat)),
+        backgroundColor: Colors.green,
+        // appBar: AppBar(
+        //   title: Text('Example Card View'),
+        // ),
+        body: Container(
+          margin: EdgeInsets.all(10),
+          child: ListView(
+            children: <Widget>[
+              buildCard(Icons.account_box, 'Account Box'),
+              buildCard(Icons.settings, 'Setting'),
+              buildCard(Icons.adb, 'Serangga Android')
+            ],
           ),
         ),
+      ),
+    );
+  }
+
+  Card buildCard(IconData iconData, String text) {
+    return Card(
+      elevation: 5,
+      child: Row(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(5),
+            child: Icon(iconData),
+          ),
+          Text(text),
+        ],
       ),
     );
   }
