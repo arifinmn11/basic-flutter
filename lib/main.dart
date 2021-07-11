@@ -27,8 +27,24 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               TextField(
-                // for input password
-                obscureText: true,
+                decoration: InputDecoration(
+                    icon: Icon(Icons.adb),
+                    fillColor: Colors.orangeAccent,
+                    filled: true,
+                    suffix: Container(
+                      width: 5,
+                      height: 5,
+                      color: Colors.red,
+                    ),
+                    prefixIcon: Icon(Icons.person),
+                    prefixText: 'Name : ',
+                    prefixStyle: TextStyle(color: Colors.lightBlue),
+                    labelText: 'Nama Lengkap',
+                    labelStyle: TextStyle(color: Colors.indigoAccent),
+                    hintText: 'Nama Lengkap ..',
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10))),
                 maxLength: 5,
                 onChanged: (value) {
                   setState(() {});
