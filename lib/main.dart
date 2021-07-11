@@ -4,42 +4,41 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  TextEditingController controller = TextEditingController(text: 'Nilai Awal');
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.green,
-        // appBar: AppBar(
-        //   title: Text('Example Card View'),
-        // ),
+        appBar: AppBar(
+          title: Text('Example TextField'),
+        ),
         body: Container(
-          margin: EdgeInsets.all(10),
-          child: ListView(
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              buildCard(Icons.account_box, 'Account Box'),
-              buildCard(Icons.settings, 'Setting'),
-              buildCard(Icons.adb, 'Serangga Android')
+              TextField(
+                // for input password
+                obscureText: true,
+                maxLength: 5,
+                onChanged: (value) {
+                  setState(() {});
+                },
+                controller: controller,
+              ),
+              Text(controller.text)
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Card buildCard(IconData iconData, String text) {
-    return Card(
-      elevation: 5,
-      child: Row(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(5),
-            child: Icon(iconData),
-          ),
-          Text(text),
-        ],
       ),
     );
   }
