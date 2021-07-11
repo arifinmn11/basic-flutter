@@ -1,34 +1,43 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.red,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Animated Container'),
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("Aplikasi Text Style"),
-          ),
-          body: Center(
-            child: Text(
-              "Ini adalah sebuah text",
-              style: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 30,
-                  fontStyle: FontStyle.italic,
-                  decoration: TextDecoration.none,
-                  decorationStyle: TextDecorationStyle.double),
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {});
+            },
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1),
+              color: Color.fromARGB(255, random.nextInt(255),
+                  random.nextInt(255), random.nextInt(255)),
+              width: 50.0 + random.nextInt(101),
+              height: 50.0 + random.nextInt(101),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
